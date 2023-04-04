@@ -1,0 +1,1251 @@
+{
+	"compiler": {
+		"version": "0.8.9+commit.e5eed63a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract IProtocolGovernance",
+								"name": "protocolGovernance",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVaultRegistry",
+								"name": "registry",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVault",
+								"name": "singleton",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IVaultGovernance.InternalParams",
+						"name": "internalParams_",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "contract INonfungiblePositionManager",
+								"name": "positionManager",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IOracle",
+								"name": "oracle",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IUniV3VaultGovernance.DelayedProtocolParams",
+						"name": "delayedProtocolParams_",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "origin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "contract INonfungiblePositionManager",
+								"name": "positionManager",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IOracle",
+								"name": "oracle",
+								"type": "address"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IUniV3VaultGovernance.DelayedProtocolParams",
+						"name": "params",
+						"type": "tuple"
+					}
+				],
+				"name": "CommitDelayedProtocolParams",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "origin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "nft",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint32",
+								"name": "safetyIndicesSet",
+								"type": "uint32"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IUniV3VaultGovernance.DelayedStrategyParams",
+						"name": "params",
+						"type": "tuple"
+					}
+				],
+				"name": "CommitDelayedStrategyParams",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "origin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "contract IProtocolGovernance",
+								"name": "protocolGovernance",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVaultRegistry",
+								"name": "registry",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVault",
+								"name": "singleton",
+								"type": "address"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IVaultGovernance.InternalParams",
+						"name": "params",
+						"type": "tuple"
+					}
+				],
+				"name": "CommitedInternalParams",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "origin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address[]",
+						"name": "vaultTokens",
+						"type": "address[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "options",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "vaultAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "vaultNft",
+						"type": "uint256"
+					}
+				],
+				"name": "DeployedVault",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "origin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "contract INonfungiblePositionManager",
+								"name": "positionManager",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IOracle",
+								"name": "oracle",
+								"type": "address"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IUniV3VaultGovernance.DelayedProtocolParams",
+						"name": "params",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "when",
+						"type": "uint256"
+					}
+				],
+				"name": "StageDelayedProtocolParams",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "origin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "nft",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint32",
+								"name": "safetyIndicesSet",
+								"type": "uint32"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IUniV3VaultGovernance.DelayedStrategyParams",
+						"name": "params",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "when",
+						"type": "uint256"
+					}
+				],
+				"name": "StageDelayedStrategyParams",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "origin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "contract IProtocolGovernance",
+								"name": "protocolGovernance",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVaultRegistry",
+								"name": "registry",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVault",
+								"name": "singleton",
+								"type": "address"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IVaultGovernance.InternalParams",
+						"name": "params",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "when",
+						"type": "uint256"
+					}
+				],
+				"name": "StagedInternalParams",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "commitDelayedProtocolParams",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "nft",
+						"type": "uint256"
+					}
+				],
+				"name": "commitDelayedStrategyParams",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "commitInternalParams",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractNameBytes",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractVersion",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractVersionBytes",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "vaultTokens_",
+						"type": "address[]"
+					},
+					{
+						"internalType": "address",
+						"name": "owner_",
+						"type": "address"
+					},
+					{
+						"internalType": "uint24",
+						"name": "fee_",
+						"type": "uint24"
+					},
+					{
+						"internalType": "address",
+						"name": "uniV3Helper_",
+						"type": "address"
+					}
+				],
+				"name": "createVault",
+				"outputs": [
+					{
+						"internalType": "contract IUniV3Vault",
+						"name": "vault",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nft",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "delayedProtocolParams",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract INonfungiblePositionManager",
+								"name": "positionManager",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IOracle",
+								"name": "oracle",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IUniV3VaultGovernance.DelayedProtocolParams",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "delayedProtocolParamsTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "nft",
+						"type": "uint256"
+					}
+				],
+				"name": "delayedProtocolPerVaultParamsTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "nft",
+						"type": "uint256"
+					}
+				],
+				"name": "delayedStrategyParams",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint32",
+								"name": "safetyIndicesSet",
+								"type": "uint32"
+							}
+						],
+						"internalType": "struct IUniV3VaultGovernance.DelayedStrategyParams",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "nft",
+						"type": "uint256"
+					}
+				],
+				"name": "delayedStrategyParamsTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "internalParams",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract IProtocolGovernance",
+								"name": "protocolGovernance",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVaultRegistry",
+								"name": "registry",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVault",
+								"name": "singleton",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IVaultGovernance.InternalParams",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "internalParamsTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract INonfungiblePositionManager",
+								"name": "positionManager",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IOracle",
+								"name": "oracle",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IUniV3VaultGovernance.DelayedProtocolParams",
+						"name": "params",
+						"type": "tuple"
+					}
+				],
+				"name": "stageDelayedProtocolParams",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "nft",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint32",
+								"name": "safetyIndicesSet",
+								"type": "uint32"
+							}
+						],
+						"internalType": "struct IUniV3VaultGovernance.DelayedStrategyParams",
+						"name": "params",
+						"type": "tuple"
+					}
+				],
+				"name": "stageDelayedStrategyParams",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract IProtocolGovernance",
+								"name": "protocolGovernance",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVaultRegistry",
+								"name": "registry",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVault",
+								"name": "singleton",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IVaultGovernance.InternalParams",
+						"name": "newParams",
+						"type": "tuple"
+					}
+				],
+				"name": "stageInternalParams",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stagedDelayedProtocolParams",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract INonfungiblePositionManager",
+								"name": "positionManager",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IOracle",
+								"name": "oracle",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IUniV3VaultGovernance.DelayedProtocolParams",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "nft",
+						"type": "uint256"
+					}
+				],
+				"name": "stagedDelayedStrategyParams",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint32",
+								"name": "safetyIndicesSet",
+								"type": "uint32"
+							}
+						],
+						"internalType": "struct IUniV3VaultGovernance.DelayedStrategyParams",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stagedInternalParams",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract IProtocolGovernance",
+								"name": "protocolGovernance",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVaultRegistry",
+								"name": "registry",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IVault",
+								"name": "singleton",
+								"type": "address"
+							}
+						],
+						"internalType": "struct IVaultGovernance.InternalParams",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"events": {
+				"CommitDelayedProtocolParams(address,address,(address,address))": {
+					"params": {
+						"origin": "Origin of the transaction (tx.origin)",
+						"params": "New params that are committed",
+						"sender": "Sender of the call (msg.sender)"
+					}
+				},
+				"CommitDelayedStrategyParams(address,address,uint256,(uint32))": {
+					"params": {
+						"nft": "VaultRegistry NFT of the vault",
+						"origin": "Origin of the transaction (tx.origin)",
+						"params": "New params that are committed",
+						"sender": "Sender of the call (msg.sender)"
+					}
+				},
+				"StageDelayedProtocolParams(address,address,(address,address),uint256)": {
+					"params": {
+						"origin": "Origin of the transaction (tx.origin)",
+						"params": "New params that were staged for commit",
+						"sender": "Sender of the call (msg.sender)",
+						"when": "When the params could be committed"
+					}
+				},
+				"StageDelayedStrategyParams(address,address,uint256,(uint32),uint256)": {
+					"params": {
+						"nft": "VaultRegistry NFT of the vault",
+						"origin": "Origin of the transaction (tx.origin)",
+						"params": "New params that were staged for commit",
+						"sender": "Sender of the call (msg.sender)",
+						"when": "When the params could be committed"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"commitDelayedStrategyParams(uint256)": {
+					"details": "Can only be called after delayedStrategyParamsTimestamp",
+					"params": {
+						"nft": "VaultRegistry NFT of the vault"
+					}
+				},
+				"constructor": {
+					"params": {
+						"delayedProtocolParams_": "Initial Protocol Params",
+						"internalParams_": "Initial Internal Params"
+					}
+				},
+				"createVault(address[],address,uint24,address)": {
+					"params": {
+						"fee_": "Fee of the UniV3 pool",
+						"owner_": "Owner of the vault NFT",
+						"uniV3Helper_": "address of helper for UniV3 arithmetic with ticks",
+						"vaultTokens_": "ERC20 tokens that will be managed by this Vault"
+					}
+				},
+				"delayedProtocolPerVaultParamsTimestamp(uint256)": {
+					"params": {
+						"nft": "Nft of the vault"
+					}
+				},
+				"delayedStrategyParams(uint256)": {
+					"params": {
+						"nft": "VaultRegistry NFT of the vault"
+					}
+				},
+				"delayedStrategyParamsTimestamp(uint256)": {
+					"params": {
+						"nft": "Nft of the vault"
+					}
+				},
+				"stageDelayedProtocolParams((address,address))": {
+					"params": {
+						"params": "New params"
+					}
+				},
+				"stageDelayedStrategyParams(uint256,(uint32))": {
+					"params": {
+						"nft": "VaultRegistry NFT of the vault",
+						"params": "New params"
+					}
+				},
+				"stageInternalParams((address,address,address))": {
+					"params": {
+						"newParams": "New Internal Params"
+					}
+				},
+				"stagedDelayedStrategyParams(uint256)": {
+					"params": {
+						"nft": "VaultRegistry NFT of the vault"
+					}
+				},
+				"stagedInternalParams()": {
+					"details": "The Internal Params could be committed after internalParamsTimestamp"
+				},
+				"supportsInterface(bytes4)": {
+					"details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"CommitDelayedProtocolParams(address,address,(address,address))": {
+					"notice": "Emitted when new DelayedProtocolParams are committed"
+				},
+				"CommitDelayedStrategyParams(address,address,uint256,(uint32))": {
+					"notice": "Emitted when new DelayedStrategyParams are committed"
+				},
+				"CommitedInternalParams(address,address,(address,address,address))": {
+					"notice": "Emitted when InternalParams are staged for commit"
+				},
+				"DeployedVault(address,address,address[],bytes,address,address,uint256)": {
+					"notice": "Emitted when New Vault is deployed"
+				},
+				"StageDelayedProtocolParams(address,address,(address,address),uint256)": {
+					"notice": "Emitted when new DelayedProtocolParams are staged for commit"
+				},
+				"StageDelayedStrategyParams(address,address,uint256,(uint32),uint256)": {
+					"notice": "Emitted when new DelayedStrategyParams are staged for commit"
+				},
+				"StagedInternalParams(address,address,(address,address,address),uint256)": {
+					"notice": "Emitted when InternalParams are staged for commit"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"commitDelayedProtocolParams()": {
+					"notice": "Commit Delayed Protocol Params, i.e. Params that could be changed by Protocol Governance with Protocol Governance delay."
+				},
+				"commitDelayedStrategyParams(uint256)": {
+					"notice": "Commit Delayed Strategy Params, i.e. Params that could be changed by Strategy or Protocol Governance with Protocol Governance delay."
+				},
+				"commitInternalParams()": {
+					"notice": "Commit staged Internal Params."
+				},
+				"constructor": {
+					"notice": "Creates a new contract."
+				},
+				"createVault(address[],address,uint24,address)": {
+					"notice": "Deploys a new vault."
+				},
+				"delayedProtocolParams()": {
+					"notice": "Delayed Protocol Params, i.e. Params that could be changed by Protocol Governance with Protocol Governance delay."
+				},
+				"delayedProtocolParamsTimestamp()": {
+					"notice": "Timestamp in unix time seconds after which staged Delayed Protocol Params could be committed."
+				},
+				"delayedProtocolPerVaultParamsTimestamp(uint256)": {
+					"notice": "Timestamp in unix time seconds after which staged Delayed Protocol Params Per Vault could be committed."
+				},
+				"delayedStrategyParams(uint256)": {
+					"notice": "Delayed Strategy Params"
+				},
+				"delayedStrategyParamsTimestamp(uint256)": {
+					"notice": "Timestamp in unix time seconds after which staged Delayed Strategy Params could be committed."
+				},
+				"internalParams()": {
+					"notice": "Internal Params of the contract."
+				},
+				"internalParamsTimestamp()": {
+					"notice": "Timestamp in unix time seconds after which staged Internal Params could be committed."
+				},
+				"stageDelayedProtocolParams((address,address))": {
+					"notice": "Stage Delayed Protocol Params, i.e. Params that could be changed by Protocol Governance with Protocol Governance delay."
+				},
+				"stageDelayedStrategyParams(uint256,(uint32))": {
+					"notice": "Stage Delayed Strategy Params, i.e. Params that could be changed by Strategy or Protocol Governance with Protocol Governance delay."
+				},
+				"stageInternalParams((address,address,address))": {
+					"notice": "Stage new Internal Params."
+				},
+				"stagedDelayedProtocolParams()": {
+					"notice": "Delayed Protocol Params staged for commit after delay."
+				},
+				"stagedDelayedStrategyParams(uint256)": {
+					"notice": "Delayed Strategy Params staged for commit after delay."
+				},
+				"stagedInternalParams()": {
+					"notice": "Staged new Internal Params."
+				}
+			},
+			"notice": "Governance that manages all UniV3 Vaults params and can deploy a new UniV3 Vault.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/vaults/UniV3VaultGovernance.sol": "UniV3VaultGovernance"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/IAccessControl.sol": {
+			"keccak256": "0x693d1a6333975d5bd166fcc844874f96affecbf45dc5c34fa7d172248d74c06b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1e7e0a870c4c25c619d8cef3c646ac78b9e9d4ac15d50f8f2b6729bd04cae47c",
+				"dweb:/ipfs/QmNj6rGpNzq6HDnfyBNr8joZCGm23M5kWHAhYfg3BwN7JF"
+			]
+		},
+		"@openzeppelin/contracts/access/IAccessControlEnumerable.sol": {
+			"keccak256": "0x3c3ef4fb25def71f5f18af554ca938950eb9cf218fda073ed2c69b9203c03455",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8083924ad8ee40a1254bb235c59360165b3cac1bc1e9bfd926beecc50c75cffd",
+				"dweb:/ipfs/Qme9trL3Q7GAP2B18XAg1DynP1EyQ2K1GcM6MwWgKM97p5"
+			]
+		},
+		"@openzeppelin/contracts/proxy/Clones.sol": {
+			"keccak256": "0xb0ff3f5c37c94cfa0da555a4c7d9034c46d70d0479917bed63612a9fc7092672",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3d92b14d2421dde24a46c0b0bf71e0fd992d704c3930fbdda0cbd63ac139f801",
+				"dweb:/ipfs/QmUxyqzwRvHLtsosLRh7i3CynAaojXfRJYcE1aBmeUeWrd"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+			"keccak256": "0x872ba21af7c1f0ae04a715beca31e8fcac764d6c8762940b0fe1bfb6ed8e86f4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://497017741d74878b56a67ad51e98061bd9ec0e6e4fdbfef0e2ab51523f4c16de",
+				"dweb:/ipfs/QmWfkpRHksy8jFywqYxdmMqdkQ1hxrGTPoNBXbZ48zTvyv"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+			"keccak256": "0x483b106386dd309f168672928252a19f30c30efb4d17d4b8e2b0f587ca784a11",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://189a39d066c6886ddbe86c79bb36d6cbe66e98bc6a94956e28f5503dae4ad406",
+				"dweb:/ipfs/QmT3s3PwCdXqHLJk26kcnedrRGTC9T18z52i9Be7PV9ppc"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+			"keccak256": "0x905cd0ecd91d1de79a4679d745b79cf852ca8ccda5d25d1c49c6bd17a5edc0cf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8dd1601fcd370546d8c06ea1902d7e7364fc490fbf0ebc3004230ef1f5db473c",
+				"dweb:/ipfs/Qmb8zbC3TjWFtcuyP3KEEaegMkPcfeKAcPrwzvkAoMR3cZ"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x6aa521718bf139b44ce56f194f6aea1d590cacef995b5a84703fb1579fa49be9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://100f8d367b5e94eb9cb991914f1de133cf272654c0708faa893bbc17a5b35b93",
+				"dweb:/ipfs/QmZeBojmgXq821dL1TJKFb58B1FogM9jL3u7hXQ8hTEBKT"
+			]
+		},
+		"contracts/interfaces/IProtocolGovernance.sol": {
+			"keccak256": "0xda6b37c257d780a870b289b4e44badc6afb7f2301f500a440c4c020abedd98e6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://93ce78b05dd9bdaea807380cd44e220c217ee4bb27f311993f28ea27c82fd215",
+				"dweb:/ipfs/QmcxSoA8MBtwt1FFGVcGo4LCzCSUAB3jfX5TkiafAVQbqx"
+			]
+		},
+		"contracts/interfaces/IUnitPricesGovernance.sol": {
+			"keccak256": "0x300050e0de7d02134592f130cdb90752dc8fcea6cab2e58eb9dafd3a7e3f4e5f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1065d39058393c0da9550a424a34e2832882a530e4ddce33f5ddd17bd2d56a72",
+				"dweb:/ipfs/QmX1zjA1as8jxrvZCwTyGPVAkCyh7Gg6G89757aJLoGC47"
+			]
+		},
+		"contracts/interfaces/IVaultRegistry.sol": {
+			"keccak256": "0x66ba86bbbe472a039ab45b556eb235c9ed64ea0d43de4f22fdf64b9b41e3f4ca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f8fb21d42fb95e7f8df33c227ae1b2363c7d86288f8d88a076c0163f28c2687e",
+				"dweb:/ipfs/QmQboWcs8qDG1kqjoKr5QAVa6oWCHagGoYxcsmNbgYhka3"
+			]
+		},
+		"contracts/interfaces/external/erc/IERC1271.sol": {
+			"keccak256": "0x2081de4db31bc623043b8305bf55c676c55250a3b51deb293281d97f1ca7e9c9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://712dbbd43245e0bb9ca5573170507fabb506ffe7610dc39f13b4716220479fba",
+				"dweb:/ipfs/QmZybwDeFoWpzkZEmMxqPA6Jx1fn8P5ygVHSDFk4uM7xS7"
+			]
+		},
+		"contracts/interfaces/external/univ3/INonfungiblePositionManager.sol": {
+			"keccak256": "0x2cf07283a70e7c61de51ad6bb067fbf35219872572dfc10b3388e0e43163f9f7",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://35790b7ff53f908c7fb2650ebd7dafd9cd23d526db63ef7c7836cbe440efe1d2",
+				"dweb:/ipfs/QmQ2R6qZoDGPRnG9FrvDBEUHbuhb6VrAw9QaqheAAqhu3B"
+			]
+		},
+		"contracts/interfaces/external/univ3/IPeripheryImmutableState.sol": {
+			"keccak256": "0x4580b2db1a3e6e749dcc1d9854036b80ea83651df0670a49f1596d7bd4abae13",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://e77ef1fe49205ab1f85341e2de918b7058228d2637796b8eee9fb7247270caa2",
+				"dweb:/ipfs/Qme2Hpmgui9Nm24zkhPHpQBnt73ginNfkWUDxv2JT8YUBA"
+			]
+		},
+		"contracts/interfaces/external/univ3/IUniswapV3Pool.sol": {
+			"keccak256": "0x5ed3604a829824e7a494212a297c7df61ea3eac9e1be66b43d7e4934d66a50fb",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://741461dc04e7a02feff6db5d6a6a4b8638ed14dbef8b6d73afb85e6de77d71c5",
+				"dweb:/ipfs/QmdvEiTZpsyEWLab3pyZDosJBywhLqB7QZp3ppMzshsX2N"
+			]
+		},
+		"contracts/interfaces/external/univ3/pool/IUniswapV3PoolActions.sol": {
+			"keccak256": "0xc0bbb3ed984dff71351269a84eb6e8e05b80fa82f8db633d3c79cce902b10062",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://1203ca3fd412d00b180941863d57ac4fb7d87612af5cd130f5f7fad4a9434be5",
+				"dweb:/ipfs/QmZxjkYTmDqmyJvTBdAkens6MpoXJ4CHuvhKe5UtYawKBV"
+			]
+		},
+		"contracts/interfaces/external/univ3/pool/IUniswapV3PoolDerivedState.sol": {
+			"keccak256": "0xa0b05b8e81826ab8b998d01e9aa5be259d1d00fc8133077969fe81ff2815fa37",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://69c1895b6b0930464290d7d5ae2ed4468965d0053ca4b8ad05793705c465eac2",
+				"dweb:/ipfs/QmQXE6AqVpy5ebkTarwk1ZfRkbTGeoYpayc5KfWUdijb3L"
+			]
+		},
+		"contracts/interfaces/external/univ3/pool/IUniswapV3PoolImmutables.sol": {
+			"keccak256": "0x4c110f8100d8bdd61abfa008dc37dc5f98c12b5b25222ac8ac8bf99ced935300",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://ef3fd138626582293a67630e3aeb17065bcc04fb018255ff89c459a81e3bd8da",
+				"dweb:/ipfs/QmV7q5EoCzNJsZGkozzb55b1iM6F1kinSKrYdARf2ZkCGb"
+			]
+		},
+		"contracts/interfaces/external/univ3/pool/IUniswapV3PoolState.sol": {
+			"keccak256": "0x9eaa533e27dc574ccd9feb3323ecc892b5153c255aeb4727c161ab9885d761f0",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://31989ea5752d8fa6fd3ebe743e1fbb98ec6b0d159dfbf4864958824673748664",
+				"dweb:/ipfs/QmWT6hgfaAPo3yFbRx69x6SJwbizmvF95YkPxhbVipRHh6"
+			]
+		},
+		"contracts/interfaces/oracles/IOracle.sol": {
+			"keccak256": "0x4629a653a356248a9683d6e02a6fb738802b60086b1cb8cdbfa05385f1914b5e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5b733f94000de360f16dd43a6ef2ad51c42f03520f7c6827919922de5d0e1149",
+				"dweb:/ipfs/QmZsdkkSrjG5cViQF5qxmU9wvnLmLKgyBvANRhTYTPaisJ"
+			]
+		},
+		"contracts/interfaces/utils/IContractMeta.sol": {
+			"keccak256": "0x71ab67daf730f37610ce5964dda62744edb347fa5b12210f9bb7c9239ff66e2a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e6f38640781fbb7476777544c34457723765be302d0b208a7e841a6361967812",
+				"dweb:/ipfs/QmRKa7A3FZJvjrJwZnhKUuddfdH7J7HuRTQBbdfBwiU4rU"
+			]
+		},
+		"contracts/interfaces/utils/IDefaultAccessControl.sol": {
+			"keccak256": "0x847c664c3e293a19109ec872e341f254a86c6f93548cea827f4e8a485cf994cd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://95fc19492725d54c1792afc736ec501a1f3a46975ecf584bfd3c0bfd83b140eb",
+				"dweb:/ipfs/QmXnawUkM3xxj2ytaTaekvj8FB3JeoiTrrBazhYg47wjSc"
+			]
+		},
+		"contracts/interfaces/vaults/IIntegrationVault.sol": {
+			"keccak256": "0xad9b4303b547c9304e51078cffc69552de4308a30036b1d07cc02a05ce5476d6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6ddd09b0d3b58bb44b45555f2a363db98e93016cae4518511c4d3e68736b30b5",
+				"dweb:/ipfs/QmYME2tp5jr9G5JhCALziJqPLysB7tgAUTkVE7rtkydA5E"
+			]
+		},
+		"contracts/interfaces/vaults/IUniV3Vault.sol": {
+			"keccak256": "0xea220692057c5684a52a33e43cbdcaf0de486caa77f8e0a3c07863f08e2d0143",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://43f7df00ae6ce5ab6dbb4074a958f2566d70208d687b255c55bcdfe7aab1bef4",
+				"dweb:/ipfs/QmZXUpkFgKGrYmJgcHRmd4ZDLS3ftP68LtuqM35xtPURcG"
+			]
+		},
+		"contracts/interfaces/vaults/IUniV3VaultGovernance.sol": {
+			"keccak256": "0xf2344aac7597dfb24e081a2ea9f420eea6802772249d79aa6e774ecd5ab46193",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://b2d883233a22377b21caf31f8efdaf209af5592096fbefa89ac3168e5ad7ce64",
+				"dweb:/ipfs/QmaU1Q81SGHDweFC1mihAwrXQcEfFaJ7QRdxmFh6Ahrja7"
+			]
+		},
+		"contracts/interfaces/vaults/IVault.sol": {
+			"keccak256": "0x9e74850f8f3ecd6eab0f6b1adaad960c443b14c128007a77260d2bb6bcb686d5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://87c2e0bdacc0a3fe9825f07a2de8ece41a6cc477872b10bd2b083400a13f4b8e",
+				"dweb:/ipfs/QmWWvR4uQY7rXboGbVBEnDH9QvTRJW9pSmSoPq8f9p8JgT"
+			]
+		},
+		"contracts/interfaces/vaults/IVaultGovernance.sol": {
+			"keccak256": "0xa5b24cd080393cb094d7887bbdc04fb4361fde90280e8bf9856428b6b6ebd90d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d6ce19e4c8a5b788963f895c6ebde1c84a294a284e76d9733d9bf89f75d2eca2",
+				"dweb:/ipfs/QmWFXkhuaaCr3VaRaKSe12hs6DKeebQhDUqAd4z6TeByJq"
+			]
+		},
+		"contracts/libraries/ExceptionsLibrary.sol": {
+			"keccak256": "0x9d3c5dbb4f630168c4c2dc8954dfefd3160632c3253ac7d9fab740db83a8debe",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fd0f1054e7ebc130cb46db7da57a16a350699020ab2e31b453677be318aaab72",
+				"dweb:/ipfs/QmbNiK1uTZmhvaN9KeCvEXiKnERcaU6fxAnKPGMbUmqk9r"
+			]
+		},
+		"contracts/libraries/PermissionIdsLibrary.sol": {
+			"keccak256": "0x8f78667de19682976b7b5f2f13eac15d2344a0387164e819895d363e19c6058c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e94cb83c512a6dce844323b3b448fc129ae12f80305567193d472d26e852c9de",
+				"dweb:/ipfs/QmUo5NYGfQPUGphL5LSTzfqtG4Gpn5JSH5SF8yy8hbv1Ha"
+			]
+		},
+		"contracts/utils/ContractMeta.sol": {
+			"keccak256": "0x4fbcc859f5a0e284485afbd6dd6ec95010dfa08cc278f50c884f5d8f8add3682",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://4c7adf6e64fb38c9d1a19ad1c32e95358930f542b52ed02558b8fddc1440a45c",
+				"dweb:/ipfs/QmZ8sj3pL6WCasw1evkHNNQu9bwCfBYzKhVy43XU6Qwqdy"
+			]
+		},
+		"contracts/vaults/UniV3VaultGovernance.sol": {
+			"keccak256": "0x1e5f49da6e00fe36ad4495d08134f43586a603c165c7c54d8e8eb6e2c756cd18",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://a477fadec3f2800a7bff511e5312ec77618e10be95f772180fd865f512590152",
+				"dweb:/ipfs/QmdKTrpPr1w4faJeaXq9Av9nSbhh7vNZEJPTndB5wWstrB"
+			]
+		},
+		"contracts/vaults/VaultGovernance.sol": {
+			"keccak256": "0x6c28cb23d4c00f119e8b1e2fe8c8c440160ccab9391120396bdbb1611c1a8b2c",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://ffb6e278d062c1ea7e53f14c6ca3e96cc263e3b42fe624072baa729841ecd888",
+				"dweb:/ipfs/QmUN7c3buqgS5umRnpfP57SHXyeJDbmNEHUHd5mJfPs5Cz"
+			]
+		}
+	},
+	"version": 1
+}
